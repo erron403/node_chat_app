@@ -4,7 +4,11 @@
   "description": "This is small chat app using node socket IO",
   "main": "server.js",
   "scripts": {
+    "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "8.11.2"
   },
   "author": "erron403",
   "license": "ISC",
