@@ -16,10 +16,20 @@ app.set("x-powered-by", false);
 io.on("connection", (socket) => {
   console.log("New user is connected!");
 
+  socket.emit('newMessage', {
+    from: 'ram@gmail.com',
+    text: 'Hey! ram there.',
+    createdAT: Date.now()
+  });
+
+  socket.on('createMessage', (message) => {
+    console.log('createMessage: ', message);
+  });
+
   socket.on("disconnect", () => {
     console.log("user is disconnected!");
   });
-  
+
 });
 
 server.listen(PORT, () => {
