@@ -16,6 +16,19 @@ app.set("x-powered-by", false);
 io.on("connection", (socket) => {
   console.log("New user is connected!");
 
+  socket.emit('newMessage', {
+      from: 'Admin',
+      text: 'Welcome to the chat App!',
+      createdAt: new Date().getTime()
+      
+  });
+
+  socket.broadcast.emit('newMessage', {
+      from: 'Admin',
+      text: 'New user joined',
+      createdAt: new Date().getTime()
+  });
+
   socket.on('createMessage', (message) => {
     console.log('createMessage: ', message);
 
